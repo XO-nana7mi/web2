@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">新建课程</h3>
+            <div class="panel-body">
+                <form method="post">
+                    <table class="table">
+                    <tbody>
+                        {% csrf_token %}
+
+                        {%for field in  form %}
+                            <div class="form-group">
+
+                                {{field.label}} : {{field}}
+                            </div>
+                        {%endfor%}
+                    </tbody>
+                    </table>
+                    <button type="submit" class="btn btn-primary" href=''>提 交</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {%endblock%}
+</body>
+</html>
